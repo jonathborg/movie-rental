@@ -19,7 +19,7 @@ function proxyBinds(target: any) {
     return new Proxy(target, handler);
 }
 
-// TODO: 
+// TODO: maybe export controllers
 export default {
     controller: proxyBinds(new UserController(new UserService())),
 };
