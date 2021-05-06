@@ -1,5 +1,3 @@
-!.gitkeep
-
 # Logs
 logs
 *.log
@@ -24,3 +22,5 @@ typings/
 
 # Local data folder
 /data/*
+
+!.gitkeep
