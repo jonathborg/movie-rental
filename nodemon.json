@@ -1,0 +1,15 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/**/node_modules"],
+  "execMap": {
+    "ts": "node -r tsconfig-paths/register -r dotenv/config -r ts-node/register/transpile-only src/main.ts"
+  },
+  "events": {
+    "restart": "echo \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
+  },
+  "watch": ["src/"],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "ts,json"
+}
