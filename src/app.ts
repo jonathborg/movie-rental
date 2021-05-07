@@ -24,7 +24,7 @@ export class App {
         this.app.use(
             rateLimit({
                 windowMs: ms('1m'),
-                max: 100, // limit each IP to 100 requests per windowMs
+                max: 250, // limit each IP to 250 requests per windowMs
             }),
         );
     }

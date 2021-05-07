@@ -1,5 +1,5 @@
 import { Knex } from 'knex';
-import { name, random } from 'faker';
+import { date, internet, name, random } from 'faker';
 
 const TABLE_NAME = 'user';
 
@@ -12,10 +12,17 @@ export async function seed(knex: Knex): Promise<void> {
     await knex(TABLE_NAME).insert(
         Array(5)
             .fill(null)
-            .map((_, i) => ({
-                name: name.findName(),
-                gender: random.arrayElement(['male', 'female']),
-                cpf: VALID_CPF[i],
-            })),
+            .map((_, i) => {
+                const firstName = name.firstName();
+                const lastName = name.lastName();
+
+                return {
+                    name: `${firstName} ${lastName}`,
+                    email: internet.email(firstName, lastName).toLowerCase(),
+                    gender: random.arrayElement(['male', 'female']),
+                    cpf: VALID_CPF[i],
+                    birth_date: date.past(30),
+                };
+            }),
     );
 }

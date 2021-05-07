@@ -10,7 +10,7 @@ const config: Knex.Config = {
         host: process.env.DB_HOST || 'localhost',
         port: Number(process.env.DB_PORT || 3306),
         user: process.env.DB_USER || 'root',
-        password: process.env.DB_PWD || 'secret',
+        password: process.env.DB_PASSWORD || 'secret',
         database: process.env.DB_NAME || 'movie_rental',
         bigNumberStrings: false,
     },
