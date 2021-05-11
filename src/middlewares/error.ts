@@ -13,5 +13,5 @@ export const error = (
     }
     console.log(err);
     const internalError = new InternalServerError();
-    return res.status(internalError.status).json({ message: internalError.message });
+    return res.status(internalError.status).json({ message: '500 no middleware de erro.' });
 };

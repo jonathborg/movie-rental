@@ -42,6 +42,7 @@ export class UserService {
             .getInstance()
             .from('user')
             .where('id', userId)
+            .whereNull('deleted_at')
             .update({ deleted_at: new Date() });
 
         return Boolean(deleted);

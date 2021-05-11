@@ -14,7 +14,6 @@ export class UserController {
         const userId = Number(req.params.id);
         const user = await this.userService.findById(userId);
         if (!user) {
-            // not hitting error middleware
             throw new NotFoundException();
         }
         return res.json(user);
@@ -33,19 +32,23 @@ export class UserController {
         const userId = Number(req.params.id);
         const updatedUser = await this.userService.update(userId, req.body);
         if (!updatedUser) {
-            // not hitting error middleware
             throw new NotFoundException();
         }
         return res.json(updatedUser);
     }
 
-    async delete(req: Request, res: Response): Promise<Response<void>> {
-        const userId = Number(req.params.id);
-        const userDeleted = await this.userService.delete(userId);
-        if (!userDeleted) {
-            // not hitting error middleware
-            throw new NotFoundException();
-        }
-        return res.status(204).send();
+    delete(req: Request, res: Response): Response<void> {
+        const obj = {};
+        obj.teste.alo = 123;
+        return res.json({ message: 'OK' });
     }
+
+    // async delete(req: Request, res: Response): Promise<Response<void>> {
+    //     const userId = Number(req.params.id);
+    //     const userDeleted = await this.userService.delete(userId);
+    //     if (!userDeleted) {
+    //         throw new NotFoundException();
+    //     }
+    //     return res.status(204).send();
+    // }
 }
